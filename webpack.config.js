@@ -42,6 +42,6 @@ function createBundle(entryfile) {
 }}
 
 module.exports = [
-   // createBundle('./public/src/login/index.js'),
+    createBundle('./public/src/login/index.js'),
     createBundle('./public/src/home/index.js'),
 ]

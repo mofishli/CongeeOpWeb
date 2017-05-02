@@ -22,8 +22,28 @@ export class LeftMenu extends Component {
     fetch("http://172.31.8.42:8086/Operation/navigtor",{mode:'cors'})
         .then(response=>response.json())
         .then(res=>{
-            console.log("")
+            console.log("输出结果"+JSON.stringify(res))
+
+            this.setState({
+              categoryList:res.data||[]
+            })
         })
+  }
+
+  renderCategory(categoryList){
+    var views=[];
+
+    categoryList.map((item)=>{
+      let itemView;
+      if(item.row&&item.row.length>0){
+        itemView= <SubMenu title={item.name}>{this.renderCategory(item.row)}</SubMenu>
+      }else {
+        itemView= <Menu.Item >{item.name}</Menu.Item>
+      }
+
+    views.push(itemView)
+    })
+    return views;
   }
 
 
@@ -47,20 +67,7 @@ export class LeftMenu extends Component {
           </MenuItemGroup>
         </SubMenu>
         <SubMenu key="sub2" title={<span><Icon type="appstore-o" /><span>产品管理</span></span>}>
-          <SubMenu key="g2" title="家电数码">
-            <Menu.Item key="3">手机</Menu.Item>
-            <Menu.Item key="4">电脑/平板</Menu.Item>
-            <Menu.Item key="5">空调</Menu.Item>
-            <Menu.Item key="6">电视</Menu.Item>
-            <Menu.Item key="7">冰箱</Menu.Item>
-          </SubMenu>
-          <SubMenu key="g3" title="鞋帽服饰">
-            <Menu.Item >女装</Menu.Item>
-            <Menu.Item >男装</Menu.Item>
-            <Menu.Item key="5">鞋帽</Menu.Item>
-            <Menu.Item key="6">内衣</Menu.Item>
-            <Menu.Item key="7">手表饰品</Menu.Item>
-          </SubMenu>
+          {this.renderCategory(this.state.categoryList)}
         </SubMenu>
         <SubMenu key="sub4" title={<span><Icon type="copy" /><span>订单管理</span></span>}>
           <Menu.Item key="9">Option 9</Menu.Item>
@@ -85,3 +92,21 @@ export class LeftMenu extends Component {
     );
   }
 }
+
+
+
+//
+// <SubMenu key="g2" title="家电数码">
+//     <Menu.Item key="3">手机</Menu.Item>
+//     <Menu.Item key="4">电脑/平板</Menu.Item>
+//     <Menu.Item key="5">空调</Menu.Item>
+//     <Menu.Item key="6">电视</Menu.Item>
+//     <Menu.Item key="7">冰箱</Menu.Item>
+//     </SubMenu>
+//     <SubMenu key="g3" title="鞋帽服饰">
+//     <Menu.Item >女装</Menu.Item>
+//     <Menu.Item >男装</Menu.Item>
+//     <Menu.Item key="5">鞋帽</Menu.Item>
+//     <Menu.Item key="6">内衣</Menu.Item>
+//     <Menu.Item key="7">手表饰品</Menu.Item>
+//     </SubMenu>

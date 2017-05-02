@@ -2,14 +2,16 @@
     background-color: white;
     flex-direction: row;
     height: 100%;
-    .left{
+
+}
+.left{
     background-color:#404040;
     height: 100%;
     width: 20%;
     justify-content: center;
     align-content: center;
-    }
-    .titel{
+}
+.titel{
     color:white;
     font-size: medium;
     background-color: #323232;
@@ -19,9 +21,7 @@
     padding-right: 40px;
     margin-top: 30px;
     border-radius: 5px;
-    }
 }
-
 html,body{
     height: 100%;
     width: 100%;
