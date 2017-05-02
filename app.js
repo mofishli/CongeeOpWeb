@@ -23,11 +23,11 @@ loadRouter(app, path.join(__dirname, 'routes').replace(/\\/g,'/')
 );
 
 
-app.listen(3000, function(err) {
+app.listen(8082, function(err) {
   if (err) {
     console.log(err);
     return;
   }
 
-  console.log('Listening at http://localhost:3000');
+  console.log('Listening at http://localhost:8082');
 });

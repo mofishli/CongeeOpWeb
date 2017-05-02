@@ -1,6 +1,20 @@
 var path = require('path');
 var webpack = require('webpack');
 
+
+var jsxLoaders = [
+    {
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        loader: 'babel?presets[]=react,presets[]=es2015'
+    },
+    {
+        test: /\.css|scss$/,
+        loader:  "style!css!sass!postcss",
+    },
+
+];
+
 function createBundle(entryfile) {
     var str = entryfile;
     var index = str.lastIndexOf("/");
@@ -23,15 +37,11 @@ function createBundle(entryfile) {
                 }
             })],
         module: {
-            loaders: [{
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loaders: ['babel'],
-                }]}
+            loaders: jsxLoaders
         }
-}
+}}
 
 module.exports = [
-    createBundle('./public/src/login/index.js'),
+   // createBundle('./public/src/login/index.js'),
     createBundle('./public/src/home/index.js'),
 ]
