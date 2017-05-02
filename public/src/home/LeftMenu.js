@@ -8,11 +8,13 @@ import 'whatwg-fetch'
 
 export class LeftMenu extends Component {
 
-    getInitialState(){
-      return{
-        categoryList: [],
-      };
+  constructor(props) {
+      super(props);
+      this.state={
+        categoryList:[]
+      }
     }
+
 
   componentDidMount(){
    this.loadCategory();
@@ -32,17 +34,15 @@ export class LeftMenu extends Component {
 
   renderCategory(categoryList){
     var views=[];
-
-    categoryList.map((item)=>{
+    categoryList&&categoryList.map((item)=>{
       let itemView;
       if(item.row&&item.row.length>0){
         itemView= <SubMenu title={item.name}>{this.renderCategory(item.row)}</SubMenu>
       }else {
         itemView= <Menu.Item >{item.name}</Menu.Item>
       }
-
     views.push(itemView)
-    })
+    });
     return views;
   }
 
@@ -54,7 +54,6 @@ export class LeftMenu extends Component {
       <Menu
           theme={'dark'}
           onClick={this.handleClick}
-          style={{ width: 240 }}
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
           mode="inline"

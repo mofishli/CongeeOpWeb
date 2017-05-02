@@ -2,24 +2,30 @@
     background-color: white;
     flex-direction: row;
     height: 100%;
-
+    width:100%;
+    display: flex;
+    background-attachment: fixed;
 }
 .left{
+    margin-top: 0px;
     background-color:#404040;
     height: 100%;
     width: 20%;
-    justify-content: center;
-    align-content: center;
+    display: inline-table;
+}
+.right{
+    flex:1;
+    background-color: white;
 }
 .titel{
     color:white;
     font-size: medium;
     background-color: #323232;
-    padding-top: 20px ;
-    padding-bottom: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-top: 30px;
+    padding-top: 8px ;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin: 20px;
     border-radius: 5px;
 }
 html,body{
