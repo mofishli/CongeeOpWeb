@@ -1,14 +1,16 @@
 import React ,{ Component } from 'react';
 import './style.css'
 
-export class ProductPage extends Component {
+var ProductPage = React.createClass({
 
     render() {
         return (
             <div className="background">
-
+                {'ProductPage'+this.props.id}
             </div>
         );
     }
-}
+});
+
+module.exports=ProductPage;
 

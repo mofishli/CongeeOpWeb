@@ -1,20 +1,24 @@
 import React ,{ Component } from 'react';
 import { render } from 'react-dom';
-import { LeftMenu} from './LeftMenu';
-import { RightPage} from './RightPage';
+var LeftMenu=require('./LeftMenu');
+var RightPage=require('./RightPage');
+
 import './style.css'
 
-export class Home extends Component {
+var Home = React.createClass( {
 
     render() {
         return (
             <div className="background">
-                <LeftMenu/>
-                <RightPage/>
+                <LeftMenu changeTab={this.changeTab} test="nimabi"/>
+                <RightPage ref="rightPage"/>
             </div>
         );
+    },
+    changeTab(type,categoryId){
+        this.refs.rightPage&&this.refs.rightPage.setPage(type,categoryId);
     }
-}
+})
 
 
 render(<Home/>, document.getElementById('home'));

@@ -1,14 +1,16 @@
-import React ,{ Component } from 'react';
+import React  from 'react';
 import './style.css'
 
-export class OperationPage extends Component {
+var OperationPage =React.createClass( {
 
     render() {
         return (
             <div className="background">
-
+                {'OperationPage'+this.props.id}
             </div>
         );
     }
-}
+});
+
+module.exports=OperationPage;
 

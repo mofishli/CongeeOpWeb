@@ -1,8 +1,84 @@
-.background{
-    background-color: white;
-    flex-direction: row;
-    height: 100%;
-    width:100%;
+
+.loginbackground{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 360px;
+    height: 360px;
+    margin: -180px 0 0 -180px;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(0,0,0,.3);
+    box-shadow: 0 2px 4px #222;
+    flex-direction: column;
     display: flex;
-    background-attachment: fixed;
+}
+.title{
+    color: white;
+    font-size: 31px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.inputs{
+    position: relative;
+    height: 50px;
+    margin: 25px auto;
+}
+.userName{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: -20px 0 0 0;
+    text-align: center;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+.input{
+    height: 50px;
+    padding: 5px 10px 5px 60px;
+    border: 0;
+    width: 90%;
+    margin-left: 5%;
+    outline: none;
+    border-radius: 4px;
+    background: hsla(0,0%,100%,.8);
+    transition: all .5s linear;
+}
+.button{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+#bgVideo{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    object-fit: fill;
+}
+#bootlogin{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.tips{
+    font-size: 10px;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left:25%
+}
+body,html{
+    height:100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    /*background-image: url("http://cn.bing.com/az/hprichbg/rb/NavagioBeach_ZH-CN8854639142_1920x1080.jpg");*/
 }
